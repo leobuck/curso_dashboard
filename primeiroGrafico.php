@@ -1,5 +1,6 @@
-<html>
+<html lang="pt-br">
   <head>
+    <meta charset="utf-8">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -8,15 +9,28 @@
       function drawChart() {
         // dados
         var data = google.visualization.arrayToDataTable([
-          ['Ano', 'Vendas', 'Gastos'],
-          ['2004',  1000,      700],
-          ['2005',  1170,      600],
-          ['2006',  300,       1120],
-          ['2007',  900.45,      540]
+          ['Cidade', 'População', {role: 'annotation'}],
+          <?php
+
+            include 'conexao.php';
+            $sql = "SELECT * FROM cidades";
+            $buscar = mysqli_query($conexao, $sql);
+
+            while($dados = mysqli_fetch_array($buscar)) {
+              $cidade = $dados['cidade'];
+              $populacao = $dados['populacao'];
+            
+          ?>
+
+          ['<?php echo $cidade; ?>',  <?php echo $populacao; ?>, <?php echo $populacao; ?>],
+
+          <?php
+            }
+          ?>
         ]);
 
         var options = {
-          title: 'Meu primeiro gráfico',
+          title: 'População das Cidades',
           //curveType: 'function',
           legend: { position: 'right' }
         };
