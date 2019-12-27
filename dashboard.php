@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://getbootstrap.com.br/favicon.ico">
 
-    <title>Curso Dashboard.</title>
+    <title>Curso Dashboard</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <body>
@@ -31,56 +31,18 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
+                <a class="nav-link" href="?pagina=pedidos">
                   Pedidos
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
+                <a class="nav-link" href="?pagina=produtos">
                   Produtos
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
+                <a class="nav-link" href="?pagina=clientes">
                   Clientes
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
-                  Relatórios
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
-                  Integrações
-                </a>
-              </li>
-            </ul>
-
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Relatórios salvos</span>
-              <a class="d-flex align-items-center text-muted" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
-                  Neste mês
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
-                  Último trimestre
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
-                  Engajamento social
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
-                  Vendas do final de ano
                 </a>
               </li>
             </ul>
@@ -98,9 +60,27 @@
               
             </div>
           </div>
+          <?php
+            if (isset($_GET['pagina'])) {
+              
+              switch ($_GET['pagina']) {
+                case 'pedidos':
+                  echo '<h2>Pedidos</h2>';
+                  include 'graficos/graficoArea.php';
+                break;
+                case 'produtos':
+                  echo '<h2>Produtos</h2>';
+                break;
+                case 'clientes':
+                  echo '<h2>Clientes</h2>';
+                break;
+                default:
+                  echo '<h2>Nenhuma opção escolhida!</h2>';
+                break;
+              }
 
-          <h2>Título da seção</h2>
-          
+            }
+          ?>        
         </main>
       </div>
     </div>
