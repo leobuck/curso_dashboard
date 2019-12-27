@@ -36,8 +36,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="?pagina=produtos">
-                  Produtos
+                <a class="nav-link" href="?pagina=clientes">
+                  Cadastro de Clientes
                 </a>
               </li>
               <li class="nav-item">
@@ -68,8 +68,8 @@
                   echo '<h2>Pedidos</h2>';
                   include 'graficos/graficoArea.php';
                 break;
-                case 'produtos':
-                  echo '<h2>Produtos</h2>';
+                case 'clientes':
+                  include 'cadastro_cliente.php';
                 break;
                 case 'vendas':
                   include 'cadastro_vendas.php';
