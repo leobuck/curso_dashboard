@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <body>
     <nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">Curso Dashboard</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="">Curso Dashboard</a>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">Sair</a>
+          <a class="nav-link" href="">Sair</a>
         </li>
       </ul>
     </nav>
@@ -76,6 +76,7 @@
                 break;
                 default:
                   include 'painel.php';
+                  include 'painel2.php';
                 break;
               }
 
