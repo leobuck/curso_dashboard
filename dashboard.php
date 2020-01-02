@@ -26,7 +26,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="https://getbootstrap.com.br/docs/4.1/examples/dashboard/#">
+                <a class="nav-link active" href="?pagina">
                   Dashboard <span class="sr-only">(atual)</span>
                 </a>
               </li>
@@ -75,7 +75,7 @@
                   include 'cadastro_vendas.php';
                 break;
                 default:
-                  echo '<h2>Nenhuma opção escolhida!</h2>';
+                  include 'painel.php';
                 break;
               }
 
