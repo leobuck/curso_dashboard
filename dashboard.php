@@ -10,6 +10,7 @@
     <title>Curso Dashboard</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
 
     <style>
       @media only screen and (max-width: 600px) {
@@ -21,38 +22,46 @@
       }
     </style>
   <body>
-    <nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow d-none d-sm-block">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="">Curso Dashboard</a>
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="">Sair</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg" style="background-color: #250352; color: #FFF;">
+      <a class="navbar-brand" href="#" style="text-decoration: none; color: #FFF;">
+        <img src="https://www.freeiconspng.com/uploads/dashboard-icon-3.png" width="35px" height="35px"> Dashboard
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" style="text-decoration: none; color: #FFF;">Leo <span class="sr-only">(página atual)</span></a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <div class="container-fluid">
       <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <nav class="col-md-2 d-none d-md-block sidebar" style="border-right: 1px solid #DDD;">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link active" href="?pagina">
-                  Dashboard <span class="sr-only">(atual)</span>
+                  <i class="fas fa-tachometer-alt"></i>&nbsp;Dashboard <span class="sr-only">(atual)</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="?pagina=pedidos">
-                  Pedidos
+                  <i class="fas fa-th-large"></i>&nbsp;Pedidos
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="?pagina=clientes">
-                  Cadastro de Clientes
+                  <i class="fas fa-user"></i>&nbsp;Cadastro de Clientes
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="?pagina=vendas">
-                  Cadastro de Vendas
+                  <i class="fas fa-money-check-alt"></i>&nbsp;Cadastro de Vendas
                 </a>
               </li>
             </ul>
