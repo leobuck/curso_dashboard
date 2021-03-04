@@ -1,8 +1,13 @@
 <?php 
     include '../menu.php'; 
     include '../assets.php';
+    include '../script/password.php';
 
-    $categoria = $_GET['categoria'];
+    $nome_usuario = $_POST['nome_usuario'];
+    $nivel_acesso_usuario = $_POST['nivel_acesso_usuario'];
+    $mail_usuario = $_POST['mail_usuario'];
+    $usuario = $_POST['usuario'];
+    $senha_usuario = $_POST['senha_usuario'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,21 +21,21 @@
                 <div class="col">
                     <div class="card shadow">
                         <div class="card-header border-1">
-                            <h3 class="mb-0">Status Cadastro de Categoria</h3>
+                            <h3 class="mb-0">Status Cadastro de Usuário</h3>
                         </div>
                         <div class="container" style="margin-top: 10px;">
                             <?php 
                                 include '../conexao/conexao.php';
 
-                                $sql = "INSERT INTO categoria (tipo_categoria) VALUES ('$categoria')";
+                                $sql = "INSERT INTO usuario (nome_usuario, nivel_acesso_usuario, mail_usuario, usuario, senha_usuario) VALUES ('$nome_usuario', $nivel_acesso_usuario, '$mail_usuario', '$usuario', 'md5($senha_usuario)')";
                                 $inserir = mysqli_query($conexao, $sql);
-
-                                if ($inserir) {
+                                
+                                if ($inserir) {                                    
                             ?>
                             <div style="text-align: center;">
                                 <div id="certo" style="width: 200px; height: 200px; margin: 0 auto;"></div>
                                 <h4>Aprovado</h4>
-                                <a href="../formularioCategoria.php" role="button" class="btn btn-primary">Voltar</a>
+                                <a href="../formularioUsuario.php" role="button" class="btn btn-primary">Voltar</a>
                             </div>
                             <?php
                                 } else {
@@ -38,12 +43,11 @@
                             <div style="text-align: center;">
                                 <div id="erro" style="width: 200px; height: 200px; margin: 0 auto;"></div>
                                 <h4>Reprovado</h4>
-                                <a href="../formularioCategoria.php" role="button" class="btn btn-primary">Voltar</a>
+                                <a href="../formularioUsuario.php" role="button" class="btn btn-danger">Voltar</a>
                             </div>
                             <?php
                                 }
                             ?>
-                            
                         </div>
 
                         <div class="card-footer py-4">

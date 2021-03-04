@@ -2,7 +2,7 @@
     include '../menu.php'; 
     include '../assets.php';
 
-    $categoria = $_GET['categoria'];
+    $modalidade = $_GET['modalidade'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,13 +16,13 @@
                 <div class="col">
                     <div class="card shadow">
                         <div class="card-header border-1">
-                            <h3 class="mb-0">Status Cadastro de Categoria</h3>
+                            <h3 class="mb-0">Status Cadastro de Modalidade</h3>
                         </div>
                         <div class="container" style="margin-top: 10px;">
                             <?php 
                                 include '../conexao/conexao.php';
 
-                                $sql = "INSERT INTO categoria (tipo_categoria) VALUES ('$categoria')";
+                                $sql = "INSERT INTO modalidade (tipo_modalidade) VALUES ('$modalidade')";
                                 $inserir = mysqli_query($conexao, $sql);
 
                                 if ($inserir) {
@@ -30,7 +30,7 @@
                             <div style="text-align: center;">
                                 <div id="certo" style="width: 200px; height: 200px; margin: 0 auto;"></div>
                                 <h4>Aprovado</h4>
-                                <a href="../formularioCategoria.php" role="button" class="btn btn-primary">Voltar</a>
+                                <a href="../formularioModalidade.php" role="button" class="btn btn-primary">Voltar</a>
                             </div>
                             <?php
                                 } else {
@@ -38,7 +38,7 @@
                             <div style="text-align: center;">
                                 <div id="erro" style="width: 200px; height: 200px; margin: 0 auto;"></div>
                                 <h4>Reprovado</h4>
-                                <a href="../formularioCategoria.php" role="button" class="btn btn-primary">Voltar</a>
+                                <a href="../formularioModalidade.php" role="button" class="btn btn-danger">Voltar</a>
                             </div>
                             <?php
                                 }

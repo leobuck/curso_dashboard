@@ -2,7 +2,18 @@
     include '../menu.php'; 
     include '../assets.php';
 
-    $categoria = $_GET['categoria'];
+    $nome_cliente = $_GET['nome_cliente'];
+    $sobrenome_cliente = $_GET['sobrenome_cliente'];
+    $endereco_cliente = $_GET['endereco_cliente'];
+    $nro_end_cliente = $_GET['nro_end_cliente'];
+    $complemento_cliente = $_GET['complemento_cliente'];
+    $bairro_cliente = $_GET['bairro_cliente'];
+    $cidade_cliente = $_GET['cidade_cliente'];
+    $uf_cliente = $_GET['uf_cliente'];
+    $cep_cliente = $_GET['cep_cliente'];
+    $mail_cliente = $_GET['mail_cliente'];
+    $cpf_cliente = $_GET['cpf_cliente'];
+    $interesse_cliente = $_GET['interesse_cliente'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,13 +27,13 @@
                 <div class="col">
                     <div class="card shadow">
                         <div class="card-header border-1">
-                            <h3 class="mb-0">Status Cadastro de Categoria</h3>
+                            <h3 class="mb-0">Status Cadastro de Cliente</h3>
                         </div>
                         <div class="container" style="margin-top: 10px;">
                             <?php 
                                 include '../conexao/conexao.php';
 
-                                $sql = "INSERT INTO categoria (tipo_categoria) VALUES ('$categoria')";
+                                $sql = "INSERT INTO cliente (nome_cliente, sobrenome_cliente, endereco_cliente, nro_end_cliente, complemento_cliente, bairro_cliente, cidade_cliente, uf_cliente, cep_cliente, mail_cliente, cpf_cliente, interesse_cliente) VALUES ('$nome_cliente', '$sobrenome_cliente', '$endereco_cliente', $nro_end_cliente, '$complemento_cliente', '$bairro_cliente', '$cidade_cliente', '$uf_cliente', '$cep_cliente', '$mail_cliente', '$cep_cliente', '$interesse_cliente')";
                                 $inserir = mysqli_query($conexao, $sql);
 
                                 if ($inserir) {
@@ -30,7 +41,7 @@
                             <div style="text-align: center;">
                                 <div id="certo" style="width: 200px; height: 200px; margin: 0 auto;"></div>
                                 <h4>Aprovado</h4>
-                                <a href="../formularioCategoria.php" role="button" class="btn btn-primary">Voltar</a>
+                                <a href="../formularioCliente.php" role="button" class="btn btn-primary">Voltar</a>
                             </div>
                             <?php
                                 } else {
@@ -38,7 +49,7 @@
                             <div style="text-align: center;">
                                 <div id="erro" style="width: 200px; height: 200px; margin: 0 auto;"></div>
                                 <h4>Reprovado</h4>
-                                <a href="../formularioCategoria.php" role="button" class="btn btn-primary">Voltar</a>
+                                <a href="../formularioCliente.php" role="button" class="btn btn-danger">Voltar</a>
                             </div>
                             <?php
                                 }

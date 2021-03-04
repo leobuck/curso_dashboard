@@ -13,27 +13,31 @@
             <div class="card-header border-1">
               <h3 class="mb-0">Cadastro de Modalidade</h3>
             </div>
-            <form>
-                <div class="container" style="margin-top: 10px;">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Tipo:</label>
-                                <input class="form-control form-control-alternative" type="text" name="modalidade"
-                                    placeholder="Informe uma Modalidade" required>
-                            </div>
-                        </div>
+            <div class="container" style="margin-top: 10px;">
+              <form action="cadastros/inserir_modalidade.php" method="get">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Tipo de Modalidade:</label>
+                      <input class="form-control form-control-alternative" type="text" name="modalidade"
+                        placeholder="Informe uma Modalidade" required autocomplete="off">
                     </div>
+                  </div>
                 </div>
-            </form>
-            <div class="card-footer py-4">
-                <div class="float-right">
-                    <button type="button" class="btn btn-primary">Cadastrar</button>
+
+                <div class="card-footer py-4">
+                  <div style="text-align: right;">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                  </div>
                 </div>
+              </form>
             </div>
+            
           </div>
         </div>
       </div>
+    
+
       <!-- Footer -->
       <footer class="footer">
         <div class="row align-items-center justify-content-xl-between">

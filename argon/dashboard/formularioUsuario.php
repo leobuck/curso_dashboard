@@ -13,24 +13,24 @@
             <div class="card-header border-1">
               <h3 class="mb-0">Cadastro de Usuário</h3>
             </div>
-            <form>
+            <form action="cadastros/inserir_usuario.php" method="POST">
                 <div class="container" style="margin-top: 10px;">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nome:</label>
-                                <input class="form-control form-control-alternative" type="text" name="nome"
+                                <input class="form-control form-control-alternative" type="text" name="nome_usuario"
                                     placeholder="Nome Completo" required autofocus="" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nível do Usuário:</label>
-                                <select class="form-control form-control-alternative" name="nivel">
-                                    <option>Gerente</option>
-                                    <option>Vendedor</option>
-                                    <option>Administrador</option>
-                                    <option>Recepcionista</option>
+                                <select class="form-control form-control-alternative" name="nivel_acesso_usuario">
+                                    <option value="1">Gerente</option>
+                                    <option value="2">Vendedor</option>
+                                    <option value="3">Recepcionista</option>
+                                    <option value="4">Administrador</option>
                                 </select>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Senha:</label>
-                                <input class="form-control form-control-alternative" type="password" name="senha"
+                                <input class="form-control form-control-alternative" type="password" name="senha_usuario"
                                     placeholder="Senha de no minimo 8 digitos" required autocomplete="off">
                             </div>
                         </div>
@@ -55,18 +55,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>E-mail:</label>
-                                <input class="form-control form-control-alternative" type="email" name="email"
+                                <input class="form-control form-control-alternative" type="email" name="mail_usuario"
                                     placeholder="E-mail Válido" required autocomplete="off">
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
-            <div class="card-footer py-4">
-                <div class="float-right">
-                    <button type="button" class="btn btn-primary">Cadastrar</button>
+                <div class="card-footer py-4">
+                  <div style="text-align: right;">
+                      <button type="submit" class="btn btn-primary">Cadastrar</button>
+                  </div>
                 </div>
-            </div>
+            </form>
+
           </div>
         </div>
       </div>
