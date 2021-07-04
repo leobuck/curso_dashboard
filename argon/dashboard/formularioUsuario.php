@@ -28,7 +28,7 @@
                                 <label>Nível do Usuário:</label>
                                 <select class="form-control form-control-alternative" name="nivel_acesso_usuario">
                                     <option value="1">Gerente</option>
-                                    <option value="2">Vendedor</option>
+                                    <option value="2">Corretor</option>
                                     <option value="3">Recepcionista</option>
                                     <option value="4">Administrador</option>
                                 </select>

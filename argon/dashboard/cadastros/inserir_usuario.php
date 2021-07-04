@@ -27,7 +27,7 @@
                             <?php 
                                 include '../conexao/conexao.php';
 
-                                $sql = "INSERT INTO usuario (nome_usuario, nivel_acesso_usuario, mail_usuario, usuario, senha_usuario) VALUES ('$nome_usuario', $nivel_acesso_usuario, '$mail_usuario', '$usuario', 'md5($senha_usuario)')";
+                                $sql = "INSERT INTO usuario (nome_usuario, nivel_acesso_usuario, mail_usuario, usuario_usuario, senha_usuario) VALUES ('$nome_usuario', $nivel_acesso_usuario, '$mail_usuario', '$usuario', 'md5($senha_usuario)')";
                                 $inserir = mysqli_query($conexao, $sql);
                                 
                                 if ($inserir) {                                    
