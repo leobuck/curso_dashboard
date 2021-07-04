@@ -256,8 +256,16 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Núm. Imóveis</h5>
+                      <?php
+                        include 'conexao/conexao.php';
+                        $sql = "SELECT COUNT(id_imovel) AS quantidade FROM imovel";
+                        $busca = mysqli_query($conexao, $sql);
+                        $dados = mysqli_fetch_array($busca);
+                        $quantidade = $dados['quantidade'];
+
+                      ?>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $quantidade; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -265,10 +273,6 @@
                       </div>
                     </div>
                   </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
                 </div>
               </div>
             </div>
