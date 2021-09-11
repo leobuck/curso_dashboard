@@ -17,7 +17,7 @@
               <h3 class="mb-0">Status do Imóvel</h3>
             </div>
             <div class="container" style="margin-top: 10px;">
-              <form action="cadastros/inserir_categoria.php" method="get">
+              <form action="cadastros/inserir_status.php" method="POST">
                 <div class="row">
                     <div class="col-md-6">
                         <?php
@@ -50,7 +50,7 @@
                                         $nomeUsuario = $dados['nome_usuario'];
                                         $usuario = $dados['usuario_usuario'];
                                 ?>
-                                    <option value="<?php echo $idUsuario; ?>">
+                                    <option value="<?php echo $usuario; ?>">
                                         <?php echo $nomeUsuario ." - " . $usuario; ?>
                                     </option>
                                 <?php
