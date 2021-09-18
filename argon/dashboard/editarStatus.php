@@ -75,7 +75,7 @@
                                         $idModalidade = $dados['id_modalidade'];
                                         $tipoModalidade = $dados['tipo_modalidade'];
                                 ?>
-                                    <option value="<?php echo $idModalidade; ?>"><?php echo $tipoModalidade; ?></option>
+                                    <option value="<?php echo $tipoModalidade; ?>"><?php echo $tipoModalidade; ?></option>
                                 <?php
                                     }
                                 ?>

@@ -281,8 +281,16 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                      <span class="h2 font-weight-bold mb-0">2,356</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Imóveis Vendidos</h5>
+                      <?php
+                        include 'conexao/conexao.php';
+                        $sql = "SELECT COUNT(id_status_imovel) AS quantidade FROM status_imovel WHERE status_imovel = 'Venda'";
+                        $busca = mysqli_query($conexao, $sql);
+                        $dados = mysqli_fetch_array($busca);
+                        $qtdVendas = $dados['quantidade'];
+
+                      ?>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $qtdVendas; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -291,8 +299,40 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last week</span>
+                    <?php
+                      include 'conexao/conexao.php';
+                      $sql = "SELECT * FROM status_imovel WHERE status_imovel = 'Venda'";
+                      $busca = mysqli_query($conexao, $sql);
+                      
+                      $sql2 = "SELECT * FROM imovel WHERE status_imovel = 'Venda'";
+                      $busca2 = mysqli_query($conexao, $sql2);
+
+                      $quantidadeImovel = 0;
+                      $quantidadeVenda = 0;
+
+                      while (($dados = mysqli_fetch_array($busca)) && ($dados2 = mysqli_fetch_array($busca2))) {
+                        $valorImovel = $dados2['valor_imovel'];
+
+                        $valorVenda = $dados['valor_negocio'];
+
+                        $quantidadeImovel += $valorImovel;
+                        $quantidadeVenda += $valorVenda;
+                      }
+
+                      $total = $quantidadeVenda - $quantidadeImovel;
+
+                      if ($total <= 0) {
+                    ?>
+                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> <?php echo number_format($total, 2, ',', '.'); ?></span>
+                    <span class="text-nowrap">Negativo</span>
+                    <?php
+                      } else {
+                    ?>
+                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> <?php echo number_format($total, 2, ',', '.'); ?></span>
+                    <span class="text-nowrap">Positivo</span>
+                    <?php
+                      }
+                    ?>
                   </p>
                 </div>
               </div>
@@ -302,8 +342,16 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                      <span class="h2 font-weight-bold mb-0">924</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Imóveis Alugados</h5>
+                      <?php
+                        include 'conexao/conexao.php';
+                        $sql = "SELECT COUNT(id_status_imovel) AS quantidade FROM status_imovel WHERE status_imovel = 'Aluguel'";
+                        $busca = mysqli_query($conexao, $sql);
+                        $dados = mysqli_fetch_array($busca);
+                        $qtdAluguel = $dados['quantidade'];
+
+                      ?>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $qtdAluguel; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -312,8 +360,18 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-                    <span class="text-nowrap">Since yesterday</span>
+                    <?php
+                      include 'conexao/conexao.php';
+                      $sql = "SELECT SUM(valor_negocio) AS valor_total FROM status_imovel WHERE status_imovel = 'Aluguel'";
+                      $busca = mysqli_query($conexao, $sql);
+                      $dados = mysqli_fetch_array($busca);
+                      $totalAluguel = $dados['valor_total'];
+                      
+                      $porcentagem = $totalAluguel * 0.15;
+
+                    ?>
+                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> <?php echo number_format($porcentagem, 2, ',', '.'); ?></span>
+                    <span class="text-nowrap">Lucro</span>
                   </p>
                 </div>
               </div>
@@ -323,8 +381,9 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                      <span class="h2 font-weight-bold mb-0">49,65%</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Lucro Total</h5>
+                      <?php $lucroTotal = $porcentagem + $total; ?>
+                      <span class="h2 font-weight-bold mb-0"><?php echo number_format($lucroTotal, 2, ',', '.'); ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -333,8 +392,19 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                    <span class="text-nowrap">Since last month</span>
+                    <?php
+                      if ($lucroTotal > 0) {
+                    ?>
+                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i></span>
+                    <span class="text-nowrap">Saldo Positivo</span>
+                    <?php
+                      } else {
+                    ?>
+                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i></span>
+                    <span class="text-nowrap">Saldo Negativo</span>
+                    <?php
+                      }
+                    ?>
                   </p>
                 </div>
               </div>
